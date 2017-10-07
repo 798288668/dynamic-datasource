@@ -1,11 +1,10 @@
 ## 简介
 
-dynamic-datasource： 动态数据源插件
-可快速集成到基于springboot的工程项目中。
+动态数据源插件,可快速集成到基于springboot的工程项目中。
 
 ## 快速集成
 1. 
-```commandline
+```bash
 git clone https://github.com/lufengc/dynamic-datasource.git
 cd dynamic-datasource/
 mvn clean install -Dmaven.test.skip
@@ -61,6 +60,7 @@ custom.datasource:
   ds2.username: root
   ds2.password: root
 ```
+> *如果服务类项目，如：dubbo服务，则排除web模块，去掉DruidAutoConfiguration中的拦截器即可*
 4. 启动注册。在启动类上添加注解@Import({DynamicDataSourceRegister.class})，如：
 ```java
 @Import({DynamicDataSourceRegister.class})
@@ -79,7 +79,7 @@ public class Application extends SpringBootServletInitializer {
 ```
 > *若启动类的扫描包路径无法扫描到，则需要在启动类上添加扫描路径，如：@ComponentScan(basePackages = "com.bdfint.datasource")*
 
-5. 使用方法：指定数据源则在方法上使用注解@TargetDataSource("ds1"), 不指定则使用默认数据源
+5. 使用。指定数据源则在方法上使用注解@TargetDataSource("ds1"), 不指定则使用默认数据源，如：
 ```java
 @Service
 public class TAreaServiceImpl implements TAreaService {
