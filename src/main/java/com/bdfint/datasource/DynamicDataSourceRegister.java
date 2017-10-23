@@ -150,11 +150,13 @@ public class DynamicDataSourceRegister implements ImportBeanDefinitionRegistrar,
         // 读取配置文件获取更多数据源，也可以通过defaultDataSource读取数据库获取更多数据源
         RelaxedPropertyResolver propertyResolver = new RelaxedPropertyResolver(env, "custom.datasource.");
         String dsPrefixs = propertyResolver.getProperty("names");
-        for (String dsPrefix : dsPrefixs.split(",")) {// 多个数据源
-            Map<String, Object> dsMap = propertyResolver.getSubProperties(dsPrefix + ".");
-            DataSource ds = buildDataSource(dsMap);
-            customDataSources.put(dsPrefix, ds);
-            dataBinder(ds, env);
+        if (dsPrefixs != null) {
+            for (String dsPrefix : dsPrefixs.split(",")) {// 多个数据源
+                Map<String, Object> dsMap = propertyResolver.getSubProperties(dsPrefix + ".");
+                DataSource ds = buildDataSource(dsMap);
+                customDataSources.put(dsPrefix, ds);
+                dataBinder(ds, env);
+            }
         }
     }
 

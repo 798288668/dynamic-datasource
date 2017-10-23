@@ -36,10 +36,19 @@ public class DruidProperties {
     private Monitor monitor;
 
     public static class Monitor {
+        private boolean open;
         private String allow;
         private String deny;
         private String loginUsername;
         private String loginPassword;
+
+        public boolean isOpen() {
+            return open;
+        }
+
+        public void setOpen(boolean open) {
+            this.open = open;
+        }
 
         public String getAllow() {
             return allow;

@@ -10,6 +10,7 @@ import com.alibaba.druid.support.http.WebStatFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -27,6 +28,7 @@ import org.springframework.context.annotation.Configuration;
 @ConditionalOnClass(DruidDataSource.class)
 @ConditionalOnProperty(prefix = "spring.datasource", name = "url")
 @AutoConfigureBefore(DataSourceAutoConfiguration.class)
+@ConditionalOnExpression("${spring.datasource.monitor.open:true}")
 public class DruidAutoConfiguration {
 
     private final DruidProperties properties;
