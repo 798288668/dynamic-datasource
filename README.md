@@ -41,6 +41,7 @@ spring:
     maxPoolPreparedStatementPerConnectionSize: 20
     filters: stat
     monitor:
+      open: true
       allow: 127.0.0.1
       deny:
       loginUsername: admin
