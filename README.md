@@ -12,7 +12,7 @@ mvn clean install -Dmaven.test.skip
 2. 引入依赖
 ```xml
 <dependency>
-    <groupId>com.dsjk</groupId>
+    <groupId>com.cheng</groupId>
     <artifactId>dynamic-datasource</artifactId>
     <version>1.0-SNAPSHOT</version>
 </dependency>
@@ -78,7 +78,7 @@ public class Application extends SpringBootServletInitializer {
     }
 }
 ```
-> *若启动类的扫描包路径无法扫描到，则需要在启动类上添加扫描路径，如：@ComponentScan(basePackages = "com.bdfint.datasource")*
+> *若启动类的扫描包路径无法扫描到，则需要在启动类上添加扫描路径，如：@ComponentScan(basePackages = "com.cheng.datasource")*
 
 5. 使用。指定数据源则在方法上使用注解@TargetDataSource("ds1"), 不指定则使用默认数据源，如：
 ```java

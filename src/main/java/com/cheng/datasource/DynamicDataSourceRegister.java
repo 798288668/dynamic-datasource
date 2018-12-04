@@ -2,7 +2,7 @@
  * Copyright (c) 2017. <a href="http://www.lufengc.com">lufengc</a> All rights reserved.
  */
 
-package com.bdfint.datasource;
+package com.cheng.datasource;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
